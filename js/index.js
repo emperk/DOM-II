@@ -1,8 +1,8 @@
 // Your code goes here
 
-// SELECTORS //
+// MOUSEOVER //
 
-// let headNavLinks = document.querySelectorAll('.nav-link');
+let headNavLinks = document.querySelector('.nav');
 
 // headNavLinks.addEventListener("mouseenter", function (event) {
 //     event.target.style.color = "red";
@@ -11,29 +11,102 @@
 //     }, 500);
 // }, false);
 
-// headNavLinks.addEventListener("mouseover", function (event) {
-//     event.target.style.color = "hotpink";
-//     setTimeout(function() {
-//         event.target.style.color = "";
-//     }, 500);
-// }, false);
+headNavLinks.addEventListener("mouseover", function (event) {
+    event.target.style.color = "hotpink";
+    setTimeout(function() {
+        event.target.style.color = "";
+    }, 500);
+}, false);
 
+// KEYDOWN //
 
+let keyDownPageColor = document.querySelector('body');
 
-let headNavLinks = document.querySelectorAll("nav");
+keyDownPageColor.addEventListener("keydown", function(event) {
+    event.target.style.color = "green";
+    setTimeout(function() {
+        event.target.style.color = "";
+    }, 500)
+}, false);
 
-headNavLinks.addEventListener("mouseover", function( event ) {
-  event.target.style.color = "red";
-  setTimeout(function() {
-    event.target.style.color = "";
-  }, 500);
+// KEYUP //
+
+let keyUpPageColor = document.querySelector('body');
+
+keyUpPageColor.addEventListener("keyup", function(event) {
+    event.target.style.color = "blue";
+    setTimeout(function() {
+        event.target.style.color = "";
+    }, 500)
 }, false);
 
 
-// headNavLinks.addEventListener("mouseover", function( event ) {
-//   event.target.style.color = "orange";
-//   setTimeout(function() {
-//     event.target.style.color = "";
-//   }, 500);
-// }, false);
+
+// WHEEL //
+
+function zoom(event) {
+    event.preventDefault();
+    scale += event.deltaY * -0.01;
+    scale = Math.min(Math.max(.125, scale), 4);
+    el.style.transform = `scale(${scale})`;
+  }
+  let scale = 1;
+  const el = document.querySelector('.img-content');
+  el.onwheel = zoom;
+
+// DBLCLICK //
+
+let funBusTitle = document.querySelector('.logo-heading');
+
+funBusTitle.addEventListener('dblclick', function (event) {
+  event.target.style.color = "orange";
+  setTimeout(function() {
+      event.target.style.color = "";
+  }, 500)
+
+}, false);
+
+// LOAD //
+
+// const log = document.querySelector('.logo-heading');
+// // const reload = document.querySelector('.logo-heading');
+
+// log.addEventListener('click', () => {
+
+// })
+
+
+
+
+// reload.addEventListener('click', () => {
+//   log.textContent ='';
+//   window.setTimeout(() => {
+//       window.location.reload(true);
+//   }, 200);
+// });
+
+// window.addEventListener('load', (event) => {
+//     log.textContent = log.textContent + 'load\n';
+// });
+
+// document.addEventListener('readystatechange', (event) => {
+//     log.textContent = log.textContent + `readystate: ${document.readyState}\n`;
+// });
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     log.textContent = log.textContent + `DOMContentLoaded\n`;
+// });
+
+// SELECT //
+
+function logSelection(event) {
+    const log = document.getElementById('log');
+    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    log.textContent = `You selected: ${selection}`;
+  }
+  
+  const input = document.querySelector('input');
+  input.addEventListener('select', logSelection);
+
+
 
