@@ -40,8 +40,6 @@ keyUpPageColor.addEventListener("keyup", function(event) {
     }, 500)
 }, false);
 
-
-
 // WHEEL //
 
 function zoom(event) {
@@ -99,14 +97,16 @@ funBusTitle.addEventListener('dblclick', function (event) {
 
 // SELECT //
 
-function logSelection(event) {
-    const log = document.getElementById('log');
+function titleSelection(event) {
+    // const titleSelect = document.querySelector('.logo-heading');
     const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
-    log.textContent = `You selected: ${selection}`;
+    // titleSelect.textContent = `You selected: ${selection}`;
+    console.log("You selected: ", {selection})
   }
   
-  const input = document.querySelector('input');
-  input.addEventListener('select', logSelection);
+let logoHead = document.querySelector('.logo-heading');
+titleSelection.addEventListener('select', logSelection);
+
 
 
 
