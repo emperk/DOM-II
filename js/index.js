@@ -59,4 +59,14 @@ bodyTextContent.addEventListener("click", function (event) {
   }, 500)
 }, false);
 
+// 6. wheel //
 
+function zoom(event) {
+  event.preventDefault();
+  scale += event.deltaY * -0.01;
+  scale = Math.min(Math.max(.125, scale), 4);
+  img.style.transform = `scale(${scale})`;
+}
+let scale = 1;
+const img = document.querySelector('.img-content');
+img.onwheel = zoom;
