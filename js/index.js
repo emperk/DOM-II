@@ -11,4 +11,13 @@ funBusHeading.addEventListener("mouseover", function (event) {
     }, 500);
 }, false);
 
-// 2. 
+// 2. keydown // 
+
+let allTextContent = document.querySelector("body");
+
+allTextContent.addEventListener("keydown", function (event) {
+    event.target.style.color = "orange";
+    setTimeout(function() {
+        event.target.style.color = "";
+    }, 500)
+}, false)
